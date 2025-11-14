@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int findMax(int *arr, int size) {
+    int maxHeight = *arr;
+    
+    for (int i = 1; i < size; i++) {
+        if (*(arr + i) > maxHeight) {
+            maxHeight = *(arr + i);
+        }
+    }
+    
+    return maxHeight;
+}
+
+int main() {
+    int heights[] = {150, 165, 172, 160, 180};
+    int size = sizeof(heights) / sizeof(heights[0]);
+    
+    int maxHeight = findMax(heights, size);
+    
+    cout << "Maximum Height: " << maxHeight << endl;
+    
+    return 0;
+}
