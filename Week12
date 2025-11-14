@@ -1,25 +1,193 @@
 #include <iostream>
 using namespace std;
 
-int findMax(int *arr, int size) {
-    int maxHeight = *arr;
+//Problem 1
+// int findMax(int *arr, int size) {
+//     int maxHeight = *arr;
     
-    for (int i = 1; i < size; i++) {
-        if (*(arr + i) > maxHeight) {
-            maxHeight = *(arr + i);
-        }
+//     for (int i = 1; i < size; i++) {
+//         if (*(arr + i) > maxHeight) {
+//             maxHeight = *(arr + i);
+//         }
+//     }
+    
+//     return maxHeight;
+// }
+
+// int main() {
+//     int heights[] = {150, 165, 172, 160, 180};
+//     int size = sizeof(heights) / sizeof(heights[0]);
+    
+//     int maxHeight = findMax(heights, size);
+    
+//     cout << "Maximum Height: " << maxHeight << endl;
+    
+//     return 0;
+// }
+
+//Problem 2
+// int main() {
+//     int a, b;
+//     int *ptrA, *ptrB;
+    
+//     cout << "Enter value for a: ";
+//     cin >> a;
+//     cout << "Enter value for b: ";
+//     cin >> b;
+    
+//     ptrA = &a;
+//     ptrB = &b;
+    
+//     cout << "Value of a through ptrA: " << *ptrA << endl;
+//     cout << "Value of b through ptrB: " << *ptrB << endl;
+    
+//     return 0;
+// }
+
+//Problem 3
+// int main() {
+//     int n, arr[100], *maxptr;
+//     cin >> n;
+//     for (int i = 0; i < n; i++) {
+//         cin >> arr[i];
+//     }
+//     maxptr = &arr[0];
+//     for (int i = 0; i < n; i++) {
+//         if (arr[i]>*maxptr)
+//             maxptr = &arr[i];
+//     }
+//     cout << maxptr;
+// }
+
+//Problem 4
+// #define val 33.3
+// #define number 50
+
+// int a;
+
+// int& fun(){
+//     return a;
+// }
+
+// int foo(){
+//     return a;
+// }
+
+// int main() {
+//     int n1=9, n2=11, *ptr_1= nullptr, *ptr_2= nullptr, k=0;
+//     double t;
+    
+//     ptr_1 = &n1;
+//     ptr_2 = &n2;
+//     t = val;
+//     fun() = number;
+    
+//     cout << number << " " << n1+n2 << " " << t << " " << a << endl;
+    
+//     return 0;
+// }
+
+//Problem 5
+// int main() {
+//     int arr[10] = {45, 23, 78, 12, 89, 34, 56, 91, 67, 38};
+//     int *ptrA = arr;
+    
+//     for (int i = 0; i < 10; i++) {
+//         cout << "Address: " << (ptrA + i) << " Value: " << *(ptrA + i) << endl;
+//     }
+    
+//     return 0;
+// }
+
+//Problem 6
+// int main() {
+//     int message = 42;
+//     int *ptr = &message;
+    
+//     cout << "Secret Message: " << *ptr << endl;
+    
+//     return 0;
+// }
+
+//Problem 7
+// float calculateAverage(int *arr, int size) {
+//     int sum = 0;
+//     for (int i = 0; i < size; i++) {
+//         sum += *(arr + i);
+//     }
+//     return (float)sum / size;
+// }
+
+// int main() {
+//     int scores[] = {88, 76, 90, 85, 92};
+//     int size = sizeof(scores) / sizeof(scores[0]);
+    
+//     float average = calculateAverage(scores, size);
+    
+//     cout << fixed;
+//     cout.precision(2);
+//     cout << "Average Score: " << average << endl;
+    
+//     return 0;
+// }
+
+//Problem 8
+// int main() {
+//     int treasures[] = {10, 20, 30, 40, 50};
+//     int *ptr = treasures;
+    
+//     int size = sizeof(treasures) / sizeof(treasures[0]);
+//     ptr += (size - 1);
+    
+//     cout << "Last treasure: " << *ptr << endl;
+    
+//     return 0;
+// }
+
+//Problem 9
+// int main() {
+//     int score = 75;
+//     int *ptr = &score;
+
+//     cout << "Original score: " << score << endl;
+//     *ptr += 10; 
+//     cout << "Updated score: " << score << endl;
+
+//     return 0;
+// }
+
+//Problem 10
+void reverseArray(int *arr, int size) {
+    int *start = arr;
+    int *end = arr + size - 1;
+    
+    while (start < end) {
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+        
+        start++;
+        end--;
     }
-    
-    return maxHeight;
 }
 
 int main() {
-    int heights[] = {150, 165, 172, 160, 180};
-    int size = sizeof(heights) / sizeof(heights[0]);
+    int numbers[] = {1, 2, 3, 4, 5};
+    int size = sizeof(numbers) / sizeof(numbers[0]);
     
-    int maxHeight = findMax(heights, size);
+    cout << "Original array: ";
+    for (int i = 0; i < size; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
     
-    cout << "Maximum Height: " << maxHeight << endl;
+    reverseArray(numbers, size);
+    
+    cout << "Reversed array: ";
+    for (int i = 0; i < size; i++) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
     
     return 0;
 }
