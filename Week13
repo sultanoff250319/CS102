@@ -1,1 +1,189 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
 
+//Problem 9
+// int main() {
+//     int a = 7, b = 14, c = 21;
+//     int* ptrs[3] = {&a, &b, &c};
+    
+//     for (int i = 0; i < 3; i++) {
+//         cout << *ptrs[i] << " ";
+//     }
+//     cout << endl;
+    
+//     return 0;
+// }
+
+//Problem 10
+// int main() {
+//     int arr[5] = {9, 3, 7, 1, 6};
+//     int n = 5;
+//     for (int* p = arr; p < arr + n; p++) {
+//         for (int* q = arr; q < arr + n - 1; q++) {
+//             if (*q > *(q + 1)) {
+//                 int temp = *q;
+//                 *q = *(q + 1);
+//                 *(q + 1) = temp;
+//             }
+//         }
+//     }
+//     for (int* p = arr; p < arr + n; p++) {
+//         cout << *p;
+//     }
+//     cout << endl;
+    
+//     return 0;
+// }
+
+//Problem 11
+// int main() {
+//     const char* suit[4] = {"Hearts", "Diamonds", "Clubs", "Spades"};
+    
+//     for (int i = 0; i < 4; i++) {
+//         cout << suit[i] << " ";
+//     }
+//     cout << endl;
+    
+//     return 0;
+// }
+
+//Problem 12
+// int main() {
+//     const char* days[3] = {"Mon", "Tue", "Wed"};
+//     for (int i = 0; i < 3; i++) {
+//         cout << *(days[i]+ 1) << endl;
+//     }
+    
+//     return 0;
+// }
+
+//Problem 13
+// int main() {
+//     const char* suit[4] = {"Hearts", "Spades", "Diamonds", "Clubs"};
+//     const char* face[13] = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+    
+//     int deck[4][13] = {};
+    
+//     cout << face[0] << " of " << suit[0] << endl;
+//     cout << face[1] << " of " << suit[1] << endl;
+//     cout << face[12] << " of " << suit[2] << endl;
+    
+//     return 0;
+// }
+
+//Problem 14
+int main() {
+    const char* suit[4] = {"Hearts", "Spades", "Diamonds", "Clubs"};
+    const char* face[13] = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+    int deck[4][13];
+    int cards[52];  
+    for (int i = 0; i < 52; i++) {
+        cards[i] = i + 1;
+    }
+    srand(time(0));
+    for (int i = 51; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = cards[i];
+        cards[i] = cards[j];
+        cards[j] = temp;
+    }
+
+    for (int i = 0; i < 52; i++) {
+        deck[i / 13][i % 13] = cards[i];
+    }
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 13; j++) {
+            cout << face[j] << " of " << suit[i];
+            if (i < 3 || j < 12) cout << ", ";
+        }
+    }
+    cout << endl;
+    
+    return 0;
+}
+//Problem 15
+// void greet() {
+//     cout << "Hello from greet()" << endl;
+// }
+
+// void bye() {
+//     cout << "Goodbye from bye()" << endl;
+// }
+
+// int main() {
+//     void (*fptr)();
+    
+//     fptr = greet;
+//     fptr();
+    
+//     fptr = bye;
+//     fptr();
+    
+//     return 0;
+// }
+
+//problem 16
+// int add(int a, int b) {
+//     return a + b;
+// }
+
+// int multiply(int a, int b) {
+//     return a * b;
+// }
+
+// int main() {
+//     int (*fptr)(int, int);
+    
+//     fptr = add;
+//     cout << "Add: " << fptr(3, 5) << " ";
+    
+//     fptr = multiply;
+//     cout << "Multiply: " << fptr(3, 5) << endl;
+    
+//     return 0;
+// }
+
+//Problem 17
+// int add(int a, int b) {
+//     return a + b;
+// }
+
+// int multiply(int a, int b) {
+//     return a * b;
+// }
+
+// void calculate(int (*op)(int, int), int x, int y) {
+//     cout << "Result: " << op(x, y) << endl;
+// }
+
+// int main() {
+//     calculate(add, 4, 5);
+//     calculate(multiply, 4, 5);
+    
+//     return 0;
+// }
+
+//Problem 18
+// int add(int a, int b) {
+//     return a + b;
+// }
+
+// int multiply(int a, int b) {
+//     return a * b;
+// }
+
+// int main() {
+//     int (*ops[])(int, int) = {add, multiply};
+    
+//     int choice;
+//     cout << "Select operation (1 for add, 2 for multiply): ";
+//     cin >> choice;
+    
+//     if (choice == 1 && choice == 2) {
+//         cout << "Output: " << ops[choice - 1](10, 5) << endl;
+//     }
+    
+//     return 0;
+// }
